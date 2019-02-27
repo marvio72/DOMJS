@@ -7,17 +7,22 @@
   'use strict';
   document.addEventListener('DOMContentLoaded', function(){
   
-    //Clonar Nodo
-    var contenido = document.querySelectorAll('main');
-    var nuevoContenido = contenido[0].cloneNode(true);
+    //Controlando Inseciones con insertBefore
 
     var sidebar = document.querySelector('aside');
-    //Sacar el numero de nodos que contiene childNodes de aside
-    //para asi poner el contenido en la ultima posicion
-    var nodos = sidebar.childNodes.length;
-    sidebar.insertBefore(nuevoContenido, sidebar.childNodes[nodos]);
-  
+    var masVisitados = document.createElement('H2');
+    var textoVisitados = document.createTextNode('Post mas Visitados');
+    masVisitados.appendChild(textoVisitados);
+    sidebar.insertBefore(masVisitados,sidebar.childNodes[0]);
     
+    var contenido = document.querySelectorAll('main h2');
+    for (let i = 0; i < contenido.length; i++) {
+      var nuevoElemento = document.createElement('LI');
+      var nuevoTexto = document.createTextNode(contenido[i].firstChild.nodeValue);
+      nuevoElemento.appendChild(nuevoTexto);
+      sidebar.insertBefore(nuevoElemento,sidebar.childNodes[2]);
+    }
+
   });
   
 })();
