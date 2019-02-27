@@ -7,19 +7,24 @@
   'use strict';
   document.addEventListener('DOMContentLoaded', function(){
   
-     var navegacion = document.getElementsByClassName('navegacion');
-     console.log(navegacion[0]);
+    var enlaces = document.getElementsByTagName('a');
+    console.log(enlaces.length);
 
-     var contenido = document.getElementsByClassName('contenido');
-     console.log(contenido[0]);
-    
-    //  Borra el contenido de div con clase contenido
-    contenido[0].style.display = 'none';
-    
+    // Agregar el atributo target="_blank" a todos los enlaces a
+    for (let i = 0; i < enlaces.length; i++) {
+      enlaces[i].setAttribute('target','_blank');
+    }
+
+    var enlacesSidebar = document.getElementById('sidebar').getElementsByTagName('a');
+    console.log(enlacesSidebar);
+
+    //Deseamos que todos los enlaces apunten a google.com
+
+    for (let j = 0; j < enlacesSidebar.length; j++) {
+      enlacesSidebar[j].setAttribute('href','http://www.google.com');
+    }
+
   });
   
 })();
 
-//La diferencia de getelementsByClassName vs getElementbyId es que
-// las clases pueden darnos mas de un resultado.
-//Recordemos que el id es unico por documento.
