@@ -7,27 +7,17 @@
   'use strict';
   document.addEventListener('DOMContentLoaded', function(){
   
-    var logo = document.querySelector('#logo');
-    console.log(logo);
+    var enlaces = document.querySelectorAll('#menu ul li a')[0];
+    console.log(enlaces.nodeType);
+    /* consultar https://developer.mozilla.org/es/docs/Web/API/Node/nodeType*/
+    console.log(enlaces.nodeName);
+    console.log(enlaces.attributes);
+    console.log(enlaces.firstChild);
+    console.log(enlaces.firstChild.nodeValue);
 
-    var encabezado = document.querySelector('aside h2');
-    console.log(encabezado);
+    enlaces.firstChild.nodeValue = "Home";
+    enlaces.id = "mi_id";
 
-    var todoEncabezado = document.querySelectorAll('h2');
-    console.log(todoEncabezado[0].innerText);
-
-    var encabezadoParrafo = document.querySelectorAll('h2, footer p');
-    console.log(encabezadoParrafo);
-
-    var enlaces = document.querySelectorAll('a');
-    enlaces[0].setAttribute('href','http://www.youtube.com');
-
-    var nombreEnlaces = document.querySelectorAll('a');
-    console.log(nombreEnlaces);
-
-    for (let i = 0; i < nombreEnlaces.length; i++) {
-      console.log(nombreEnlaces[i].innerText);
-    }
 
   });
   
