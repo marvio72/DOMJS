@@ -7,21 +7,15 @@
   'use strict';
   document.addEventListener('DOMContentLoaded', function(){
   
-    //Controlando Inseciones con insertBefore
+    //Eliminando Nodos
 
-    var sidebar = document.querySelector('aside');
-    var masVisitados = document.createElement('H2');
-    var textoVisitados = document.createTextNode('Post mas Visitados');
-    masVisitados.appendChild(textoVisitados);
-    sidebar.insertBefore(masVisitados,sidebar.childNodes[0]);
+    //Con querySelect
+    var primerPost = document.querySelector('main article');
+    primerPost.parentNode.removeChild(primerPost);
     
-    var contenido = document.querySelectorAll('main h2');
-    for (let i = 0; i < contenido.length; i++) {
-      var nuevoElemento = document.createElement('LI');
-      var nuevoTexto = document.createTextNode(contenido[i].firstChild.nodeValue);
-      nuevoElemento.appendChild(nuevoTexto);
-      sidebar.insertBefore(nuevoElemento,sidebar.childNodes[2]);
-    }
+    //Con querySelectAll
+    var enlaces = document.querySelectorAll('#navegacion nav ul li a')[10];
+    enlaces.parentNode.removeChild(enlaces);
 
   });
   
