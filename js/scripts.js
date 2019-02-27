@@ -7,34 +7,19 @@
   'use strict';
   document.addEventListener('DOMContentLoaded', function(){
   
-    //Crear contenido
+    //Clonar Nodo
+    var contenido = document.querySelectorAll('main');
+    var nuevoContenido = contenido[0].cloneNode(true);
 
-
-    var sidebar = document.querySelector('#sidebar');
-    var nuevoElemento = document.createElement("H1");
-    var nuevoContenido = document.createTextNode("Hola Mundo");
-    nuevoElemento.appendChild(nuevoContenido);
-    sidebar.appendChild(nuevoElemento);
-    
-    //Agregar entrada 6 en sidebar
-
-    var enlacesSidebar = document.querySelectorAll('#sidebar ul');
-    //Creando el enlace
-    var nuevoEnlace = document.createElement('A');
-    //Agregamos atributo al Enlace.
-    nuevoEnlace.setAttribute('href','#');
-    var textoEnlace = document.createTextNode('Entrada 6');
-    nuevoEnlace.appendChild(textoEnlace);
-    //Crear la lista
-    var nuevaLista = document.createElement('LI');
-    nuevaLista.appendChild(nuevoEnlace);
-    //Lo agregamos al menu
-    enlacesSidebar[0].appendChild(nuevaLista);
-    //por ser un arreglo al crear enlacesSidebar, tenemos que indicarle mediante
-    //indice para poder declararlo y asi agregar el contenido de nuevaLista.
-
+    var sidebar = document.querySelector('aside');
+    //Sacar el numero de nodos que contiene childNodes de aside
+    //para asi poner el contenido en la ultima posicion
+    var nodos = sidebar.childNodes.length;
+    sidebar.insertBefore(nuevoContenido, sidebar.childNodes[nodos]);
+  
     
   });
   
 })();
 
+ 
