@@ -7,21 +7,26 @@
   'use strict';
   document.addEventListener('DOMContentLoaded', function(){
   
-    var enlaces = document.getElementsByTagName('a');
-    console.log(enlaces.length);
+    var logo = document.querySelector('#logo');
+    console.log(logo);
 
-    // Agregar el atributo target="_blank" a todos los enlaces a
-    for (let i = 0; i < enlaces.length; i++) {
-      enlaces[i].setAttribute('target','_blank');
-    }
+    var encabezado = document.querySelector('aside h2');
+    console.log(encabezado);
 
-    var enlacesSidebar = document.getElementById('sidebar').getElementsByTagName('a');
-    console.log(enlacesSidebar);
+    var todoEncabezado = document.querySelectorAll('h2');
+    console.log(todoEncabezado[0].innerText);
 
-    //Deseamos que todos los enlaces apunten a google.com
+    var encabezadoParrafo = document.querySelectorAll('h2, footer p');
+    console.log(encabezadoParrafo);
 
-    for (let j = 0; j < enlacesSidebar.length; j++) {
-      enlacesSidebar[j].setAttribute('href','http://www.google.com');
+    var enlaces = document.querySelectorAll('a');
+    enlaces[0].setAttribute('href','http://www.youtube.com');
+
+    var nombreEnlaces = document.querySelectorAll('a');
+    console.log(nombreEnlaces);
+
+    for (let i = 0; i < nombreEnlaces.length; i++) {
+      console.log(nombreEnlaces[i].innerText);
     }
 
   });
